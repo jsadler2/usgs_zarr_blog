@@ -74,61 +74,61 @@ def read_parquet(df):
     path = 's3://ds-drb-data/timing_test_parquet'
     df.read_parquet(path)
 
+if __name__ == "__main__":
+    # SETUP
+    # read in all stations
+    data_file = 'data/nwis_comids-01474500.csv'
+    site_code_col = 'nwis_site_code'
+    subset_stations = pd.read_csv(data_file)[site_code_col]
+    outlet_id = '01474500'
+    start_date = '1970-01-01'
+    end_date = '2019-01-10'
+    n_trials = 10
 
-# SETUP
-# read in all stations
-data_file = 'data/nwis_comids-01474500.csv'
-site_code_col = 'nwis_site_code'
-subset_stations = pd.read_csv(data_file)[site_code_col]
-outlet_id = '01474500'
-start_date = '1970-01-01'
-end_date = '2019-01-10'
-n_trials = 10
-
-# RETRIEVAL
-# retrieve data for just the outlet
-# nwis
-sites = [outlet_id]
-nwis_one_site = time_function(st.get_streamflow_data, n_trials, sites,
-                              start_date, end_date, 'iv', '15T')
-print('nwis one site time:', nwis_one_site)
-# Zarr
-zarr_one_site = time_function(get_zarr_data, n_trials, sites, start_date,
-                              end_date)
-print('zarr one site time:', zarr_one_site)
+    # RETRIEVAL
+    # retrieve data for just the outlet
+    # nwis
+    sites = [outlet_id]
+    nwis_one_site = time_function(st.get_streamflow_data, n_trials, sites,
+                                  start_date, end_date, 'iv', '15T')
+    print('nwis one site time:', nwis_one_site)
+    # Zarr
+    zarr_one_site = time_function(get_zarr_data, n_trials, sites, start_date,
+                                  end_date)
+    print('zarr one site time:', zarr_one_site)
 
 
-# retrieve data for all stations
-# nwis
-sites = subset_stations
-nwis_all_sites = time_function(st.get_streamflow_data, 10, sites, start_date,
-                               end_date, 'iv', '15T')
-print('nwis all sites time:', nwis_all_sites)
-# Zarr
-zarr_all_sites = time_function(get_zarr_data, n_trials, sites, start_date,
-                               end_date)
-print('zarr all sites time:', zarr_all_sites)
+    # retrieve data for all stations
+    # nwis
+    sites = subset_stations
+    nwis_all_sites = time_function(st.get_streamflow_data, 10, sites, start_date,
+                                   end_date, 'iv', '15T')
+    print('nwis all sites time:', nwis_all_sites)
+    # Zarr
+    zarr_all_sites = time_function(get_zarr_data, n_trials, sites, start_date,
+                                   end_date)
+    print('zarr all sites time:', zarr_all_sites)
 
-# WRITE
-# get subset from full zarr
-df = get_zarr_data(sites, start_date, end_date)
+    # WRITE
+    # get subset from full zarr
+    df = get_zarr_data(sites, start_date, end_date)
 
-write_zarr_time = time_function(write_zarr, n_trials, df)
-print('write zarr:', write_zarr_time)
+    write_zarr_time = time_function(write_zarr, n_trials, df)
+    print('write zarr:', write_zarr_time)
 
-write_parquet_time = time_function(write_parquet, n_trials, df)
-print('write parquet:', write_parquet_time)
+    write_parquet_time = time_function(write_parquet, n_trials, df)
+    print('write parquet:', write_parquet_time)
 
-write_csv_time = time_function(write_csv, n_trials, df)
-print('write csv:', write_csv_time)
+    write_csv_time = time_function(write_csv, n_trials, df)
+    print('write csv:', write_csv_time)
 
-# READ
-read_zarr_time = time_function(read_zarr, n_trials, df)
-print('read zarr:', write_zarr_time)
+    # READ
+    read_zarr_time = time_function(read_zarr, n_trials, df)
+    print('read zarr:', write_zarr_time)
 
-read_parquet_time = time_function(write_parquet, n_trials, df)
-print('read parquet:', write_parquet_time)
+    read_parquet_time = time_function(write_parquet, n_trials, df)
+    print('read parquet:', write_parquet_time)
 
-read_csv_time = time_function(write_csv, n_trials, df)
-print('read csv:', write_csv_time)
+    read_csv_time = time_function(write_csv, n_trials, df)
+    print('read csv:', write_csv_time)
 
