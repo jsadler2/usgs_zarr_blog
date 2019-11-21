@@ -23,11 +23,23 @@ Todo: include figure
 I recorded the time it takes to retrieve and format data using the NWIS web services and then from Zarr. For the formatting of the data, I needed the data in a Pandas DataFrame with a DateTime index. I did this for one station (the overall outlet) and the same thing for all of the stations in the sub-basin. I intended this comparison to answer the question: "If I have a bunch of sites in a data base (NWIS) or if I have a bunch of sites in a Zarr store, which one is faster to retrieve a relevant subset?" 
 
 pseudo code: 
+get data from zarr from one station: 
+get data from NWIS from one station:
+get data from zarr from all stations:
+get data from NWIS from all stations:
 
 ### Comparison 2: Data write, read, and storage (Zarr vs. Parquet vs CSV)
 Once I retrieved the data subset, I wrote this subset to a new Zarr store, a Parquet file, and a CSV file. I recorded the time it took to write to each of these formats, to read from each, and the storage sizes of each. 
+ 
+pseduo code:
+write subset to zarr: 
+write subset to parquet: 
+write subset to csv: 
+read subset to zarr: 
+read subset to parquet: 
+read subset to csv: 
 
-### Results
+## Results
 
 ## Discussion
 The EC2 machine in the same region as the S3 bucket with the Zarr dataset. So it may not be a totally fair comparison but it should highlight the benefit of cloud-proximate computing as well as the readily accessible format. 
