@@ -28,7 +28,7 @@ def time_function(function, n_loop, *args):
     return min(times)
 
 
-def get_zarr_data(sites):
+def get_zarr_data(sites, start_date, end_date):
     """
     get and persist data from a zarr store then read it into a pandas dataframe
     """
@@ -36,7 +36,7 @@ def get_zarr_data(sites):
     zarr_store = load_s3_zarr_store(my_bucket)
     ds = xr.open_zarr(zarr_store)
     q = ds['streamflow']
-    s = q[sites]
+    s = q[sites, start_date:end_date]
     df = s.to_dataframe()
     return df
 
@@ -93,7 +93,8 @@ nwis_one_site = time_function(st.get_streamflow_data, n_trials, sites,
                               start_date, end_date, 'iv', '15T')
 print('nwis one site time:', nwis_one_site)
 # Zarr
-zarr_one_site = time_function(get_zarr_data, n_trials, sites)
+zarr_one_site = time_function(get_zarr_data, n_trials, sites, start_date,
+                              end_date)
 print('zarr one site time:', zarr_one_site)
 
 
@@ -104,12 +105,13 @@ nwis_all_sites = time_function(st.get_streamflow_data, 10, sites, start_date,
                                end_date, 'iv', '15T')
 print('nwis all sites time:', nwis_all_sites)
 # Zarr
-zarr_all_sites = time_function(get_zarr_data, n_trials, sites)
+zarr_all_sites = time_function(get_zarr_data, n_trials, sites, start_date,
+                               end_date)
 print('zarr all sites time:', zarr_all_sites)
 
 # WRITE
 # get subset from full zarr
-df = get_zarr_data(sites)
+df = get_zarr_data(sites, start_date, end_date)
 
 write_zarr_time = time_function(write_zarr, n_trials, df)
 print('write zarr:', write_zarr_time)
