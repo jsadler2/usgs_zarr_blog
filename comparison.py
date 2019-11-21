@@ -28,6 +28,13 @@ def time_function(function, n_loop, *args):
     return min(times)
 
 
+def ds_to_df(ds):
+    df = ds.to_dataframe()
+    df.reset_index(inplace=True)
+    df = df.pivot(index='datetime', columns='site_code', values='streamflow')
+    return df
+
+
 def get_zarr_data(sites, start_date, end_date):
     """
     get and persist data from a zarr store then read it into a pandas dataframe
@@ -36,8 +43,8 @@ def get_zarr_data(sites, start_date, end_date):
     zarr_store = load_s3_zarr_store(my_bucket)
     ds = xr.open_zarr(zarr_store)
     q = ds['streamflow']
-    s = q[sites, start_date:end_date]
-    df = s.to_dataframe()
+    s = q.loc[start_date:end_date, sites]
+    df = ds_to_df(s)
     return df
 
 
@@ -58,21 +65,27 @@ def write_parquet(df):
     df.to_parquet(path)
 
 
-def read_zarr(df):
+def read_zarr():
     zarr_store = load_s3_zarr_store('ds-drb-data/timing_test_zarr')
     ds = xr.open_zarr(zarr_store)
     q = ds['streamflow']
-    df = q.to_dataframe()
+    df = ds_to_df(q)
+    return df
 
 
-def read_csv(df):
+def read_csv():
     path = 's3://ds-drb-data/timing_test_csv'
-    df.read_csv(path)
+    df = pd.read_csv(path, index_col='datetime', parse_dates=['datetime'],
+                     infer_datetime_format=True)
+    return df
 
 
-def read_parquet(df):
+def read_parquet():
     path = 's3://ds-drb-data/timing_test_parquet'
-    df.read_parquet(path)
+    df = pd.read_parquet(path)
+    df['datetime'] = pd.to_datetime(df['datetime'])
+    df.set_index('datetime', inplace=True)
+    return df
 
 if __name__ == "__main__":
     # SETUP
@@ -123,12 +136,11 @@ if __name__ == "__main__":
     print('write csv:', write_csv_time)
 
     # READ
-    read_zarr_time = time_function(read_zarr, n_trials, df)
+    read_zarr_time = time_function(read_zarr, n_trials)
     print('read zarr:', write_zarr_time)
 
-    read_parquet_time = time_function(write_parquet, n_trials, df)
+    read_parquet_time = time_function(write_parquet, n_trials)
     print('read parquet:', write_parquet_time)
 
-    read_csv_time = time_function(write_csv, n_trials, df)
+    read_csv_time = time_function(write_csv, n_trials)
     print('read csv:', write_csv_time)
-
