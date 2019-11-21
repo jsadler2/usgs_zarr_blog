@@ -29,7 +29,7 @@ get data from zarr from all stations:
 get data from NWIS from all stations:
 
 ### Comparison 2: Data write, read, and storage (Zarr vs. Parquet vs CSV)
-Once I retrieved the data subset, I wrote this subset to a new Zarr store, a Parquet file, and a CSV file. I recorded the time it took to write to each of these formats, to read from each, and the storage sizes of each. 
+Once I retrieved the data subset, I wrote this subset to a new Zarr store, a Parquet file, and a CSV file all on the S3 bucket. I recorded the time it took to write to each of these formats, to read from each, and the storage sizes of each. 
  
 pseduo code:
 write subset to zarr: 
