@@ -1,0 +1,90 @@
+(nwm1) [ec2-user@ip-10-12-68-47 usgs_zarr_blog]$ python comparison.py
+/home/ec2-user/miniconda3/envs/nwm1/lib/python3.7/site-packages/xarray/core/merge.py:18: FutureWarning: The Panel class is removed from pandas. Accessing it from the top-level namespace will also be removed in the next version
+  PANDAS_TYPES = (pd.Series, pd.DataFrame, pd.Panel)
+/home/ec2-user/miniconda3/envs/nwm1/lib/python3.7/site-packages/xarray/core/dataarray.py:1829: FutureWarning: The Panel class is removed from pandas. Accessing it from the top-level namespace will also be removed in the next version
+  'DataArray', pd.Series, pd.DataFrame, pd.Panel]:
+starting request for sites ['01474500'] at 2019-11-22 19:20:45.103422, for period 1979-01-01 to 2019-01-10
+took 0:00:15.632570 to get data for huc ['01474500']
+processing the data for site  01474500
+nwis one site time: 29.798349
+zarr one site time: 10.542702
+starting request for sites ['01467471'] at 2019-11-22 19:21:25.444635, for period 1979-01-01 to 2019-01-10
+took 0:00:03.589862 to get data for huc ['01467471']
+processing the data for site  01467471
+starting request for sites ['01467492'] at 2019-11-22 19:21:32.410414, for period 1979-01-01 to 2019-01-10
+took 0:00:03.564292 to get data for huc ['01467492']
+processing the data for site  01467492
+starting request for sites ['01468500'] at 2019-11-22 19:21:39.514562, for period 1979-01-01 to 2019-01-10
+took 0:00:17.599957 to get data for huc ['01468500']
+processing the data for site  01468500
+starting request for sites ['01469500'] at 2019-11-22 19:22:17.985537, for period 1979-01-01 to 2019-01-10
+took 0:00:23.399935 to get data for huc ['01469500']
+processing the data for site  01469500
+starting request for sites ['01469700'] at 2019-11-22 19:23:11.981647, for period 1979-01-01 to 2019-01-10
+took 0:00:03.210523 to get data for huc ['01469700']
+processing the data for site  01469700
+starting request for sites ['01470500'] at 2019-11-22 19:23:18.488939, for period 1979-01-01 to 2019-01-10
+took 0:00:15.966877 to get data for huc ['01470500']
+processing the data for site  01470500
+starting request for sites ['01470779'] at 2019-11-22 19:23:53.310185, for period 1979-01-01 to 2019-01-10
+took 0:00:11.778818 to get data for huc ['01470779']
+processing the data for site  01470779
+starting request for sites ['01470960'] at 2019-11-22 19:24:19.666603, for period 1979-01-01 to 2019-01-10
+took 0:00:16.404381 to get data for huc ['01470960']
+processing the data for site  01470960
+starting request for sites ['01471000'] at 2019-11-22 19:24:58.622738, for period 1979-01-01 to 2019-01-10
+took 0:00:22.186864 to get data for huc ['01471000']
+processing the data for site  01471000
+starting request for sites ['01471510'] at 2019-11-22 19:25:50.058991, for period 1979-01-01 to 2019-01-10
+took 0:00:15.653515 to get data for huc ['01471510']
+processing the data for site  01471510
+starting request for sites ['01471875'] at 2019-11-22 19:26:25.389490, for period 1979-01-01 to 2019-01-10
+took 0:00:23.352667 to get data for huc ['01471875']
+processing the data for site  01471875
+starting request for sites ['01472000'] at 2019-11-22 19:27:18.324559, for period 1979-01-01 to 2019-01-10
+took 0:00:24.830155 to get data for huc ['01472000']
+processing the data for site  01472000
+starting request for sites ['01472157'] at 2019-11-22 19:28:12.085978, for period 1979-01-01 to 2019-01-10
+took 0:00:28.308150 to get data for huc ['01472157']
+processing the data for site  01472157
+starting request for sites ['01472198'] at 2019-11-22 19:29:16.678522, for period 1979-01-01 to 2019-01-10
+took 0:00:13.071790 to get data for huc ['01472198']
+processing the data for site  01472198
+starting request for sites ['01472199'] at 2019-11-22 19:29:44.552445, for period 1979-01-01 to 2019-01-10
+took 0:00:13.898151 to get data for huc ['01472199']
+processing the data for site  01472199
+starting request for sites ['01472620'] at 2019-11-22 19:30:14.532722, for period 1979-01-01 to 2019-01-10
+took 0:00:15.327258 to get data for huc ['01472620']
+processing the data for site  01472620
+starting request for sites ['01472810'] at 2019-11-22 19:30:44.812276, for period 1979-01-01 to 2019-01-10
+took 0:00:12.639071 to get data for huc ['01472810']
+processing the data for site  01472810
+starting request for sites ['01473000'] at 2019-11-22 19:31:10.194614, for period 1979-01-01 to 2019-01-10
+took 0:00:23.587025 to get data for huc ['01473000']
+processing the data for site  01473000
+starting request for sites ['01473169'] at 2019-11-22 19:32:02.113077, for period 1979-01-01 to 2019-01-10
+took 0:00:28.997150 to get data for huc ['01473169']
+processing the data for site  01473169
+starting request for sites ['01473500'] at 2019-11-22 19:33:14.446285, for period 1979-01-01 to 2019-01-10
+took 0:00:14.384846 to get data for huc ['01473500']
+processing the data for site  01473500
+starting request for sites ['01473900'] at 2019-11-22 19:33:44.467242, for period 1979-01-01 to 2019-01-10
+took 0:00:21.669415 to get data for huc ['01473900']
+processing the data for site  01473900
+starting request for sites ['01474000'] at 2019-11-22 19:34:31.456062, for period 1979-01-01 to 2019-01-10
+took 0:00:31.695203 to get data for huc ['01474000']
+processing the data for site  01474000
+starting request for sites ['01474500'] at 2019-11-22 19:35:36.250626, for period 1979-01-01 to 2019-01-10
+took 0:00:16.611695 to get data for huc ['01474500']
+processing the data for site  01474500
+nwis all sites time: 886.702435
+zarr all sites time: 23.388627
+/home/ec2-user/miniconda3/envs/nwm1/lib/python3.7/site-packages/xarray/coding/times.py:244: FutureWarning: the 'box' keyword is deprecated and will be removed in a future version. Please take steps to stop the use of 'box'
+  dates = pd.to_datetime(dates, box=False)
+write zarr: 3.607619
+write parquet: 1.715756
+write csv: 32.515807
+read zarr: 12.082639
+read parquet: 0.219966
+read csv: 0.216854
+
