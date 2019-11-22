@@ -1,6 +1,7 @@
 ## Results for small pull
 pull characteristics
 
+|thing|number|
 |---|---|
 |time period requested (days) | 10|
 |sites in all sub-basin | 23|
