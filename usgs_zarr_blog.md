@@ -3,19 +3,19 @@
 ## Introduction
 I think most everyone can agree that the cloud computing is super important and is growing in importance. The scalability, flexibility, and configurabilty of the commercial cloud provide new and exciting possibilities for many applications including earth science research. The use and advantages of the cloud are being fully explored at the US Geological Survey. The full benefit of the cloud, however, can only be realized if the data that will be used from the cloud platform are in a format which allows cloud-based access. Often this means that the data should be in chunked data.
 
-So in this blog post I'll be comparing three formats for storing time series data: Zarr, Parquet, and CSV. Zarr ()[] and Parquet ()[] are compressed, binary, data formats that can also be chunked or partitioned. This makes them a good choice for use on cloud-based environments where the number of computational cores can be increased a lot. CSV is, of course, a long-time standard format that is a plain-text version of the data.
+So in this blog post I'll be comparing three formats for storing time series data: Zarr, Parquet, and CSV. Zarr ([zarr.readthedocs.io](https://zarr.readthedocs.io/en/stable/)) and Parquet ([parquet.apache.org](https://parquet.apache.org)) are compressed, binary, data formats that can also be chunked or partitioned. This makes them a good choice for use on cloud-based environments where the number of computational cores can be increased a lot. CSV is, of course, a long-time standard format that is a plain-text version of the data.
 
 I am doing this comparision using time series data that are stored in and served from the USGS National Water Information System (NWIS). NWIS serves time series recorded at thousands observation locations throughout the US. These observations are of dozens of water science variables. My comparison will use discharge (or streamflow) data that were, for the most part, recorded 15 minute intervals.
 
 ## Comparison set up
-There were two major comparisons. The first was to compare the time required to subset data from NWIS verses Zarr. The second was to compare the write/read speeds and storage requirements between Zarr, Parquet, and CSV. I did these comparisons using a stock AWS EC2 t3a.large machine (8GB memory). The code I used to do these comparisons is here ()[]. For timing, I used the timeit package in Python to run the operations ? times each to account for inconsistencies in execution time.
+There were two major comparisons. The first was to compare the time required to subset data from NWIS verses Zarr. The second was to compare the write/read speeds and storage requirements between Zarr, Parquet, and CSV. I did these comparisons using a stock AWS EC2 t3a.large machine (8GB memory). The code I used to do these comparisons is [here](https://github.com/jsadler2/usgs_zarr_blog/blob/master/comparison.py). For timing, ran the operations ? times each to account for inconsistencies in execution time.
 
 ### Initial data gathering
-First I gathered the discharge data and wrote them to an S3 bucket. These data were gathered from more than 12,000 stations across the US for a period of record of 1970-2019 using the NWIS web services ()[]. Given preliminary experiments, I wrote all of the data to Zarr as a baseline storage format.
+First I gathered the discharge data and wrote them to an S3 bucket. These data were gathered from more than 12,000 stations across the US for a period of record of 1970-2019 using the NWIS web services [waterservices.usgs.gov/rest/IV-Service.html](https://waterservices.usgs.gov/rest/IV-Service.html). Given preliminary experiments, I wrote all of the data to Zarr as a baseline storage format.
 
 
 ### Subset of basins
-I selected a sub-basin of the Delaware River Basin to do the comparison between the file formats. Recently, the USGS initiated a program for the Next Generation Water Observation System ()[] in the Delaware River Basin. 
+I selected a sub-basin of the Delaware River Basin to do the comparison between the file formats. Recently, the USGS initiated a program for the Next Generation Water Observation System ([NGWOS](https://www.usgs.gov/mission-areas/water-resources/science/usgs-next-generation-water-observing-system-ngwos?qt-science_center_objects=0#qt-science_center_objects)) in the Delaware River Basin. 
 
 Todo: include figure
 
