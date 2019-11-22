@@ -44,7 +44,7 @@ pull characteristics
 | | Zarr | Parquet| CSV|
 |---|---|---| ---|
 |write (sec)| 3.6 | 1.7 | 32.5 | 
-|read (sec)| 12.1 | 0.2 | 0.2 | 
-|storage (MB)| 33.5 | 110.1 | 15.4 | 
+|read (sec)| 12.1 | 1.1 | 5.8 | 
+|storage (MB)| 33.5 | 15.4 | 110 | 
 
 
