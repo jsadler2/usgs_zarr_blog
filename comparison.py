@@ -35,6 +35,16 @@ def ds_to_df(ds):
     return df
 
 
+def retrieve_from_nwis(site_codes, start_date, end_date):
+    df_list = []
+    for site_code in site_codes:
+        d = st.get_streamflow_data([site_code], start_date, end_date, 'iv',
+                                   '15T')
+        df_list.append(d)
+    df_comb = pd.concat(df_list, 1)
+    return df_comb
+
+
 def get_zarr_data(sites, start_date, end_date):
     """
     get and persist data from a zarr store then read it into a pandas dataframe
@@ -87,23 +97,30 @@ def read_parquet():
     df.set_index('datetime', inplace=True)
     return df
 
+def get_sites_list():
+    data_file = 'data/drb_streamflow_sites_table.csv'
+    site_code_df = pd.read_csv(data_file, dtype=str)
+    site_code_col = 'identifier'
+    site_codes = site_code_df[site_code_col].to_list()
+    site_codes = [s.replace('USGS-', '') for s in site_codes]
+    return site_codes
+
+
 if __name__ == "__main__":
     # SETUP
     # read in all stations
-    data_file = 'data/nwis_comids-01474500.csv'
-    site_code_col = 'nwis_site_code'
-    subset_stations = pd.read_csv(data_file)[site_code_col]
+    drb_site_codes = get_sites_list()
     outlet_id = '01474500'
-    start_date = '1970-01-01'
+    start_date = '2019-01-01'
     end_date = '2019-01-10'
-    n_trials = 10
+    n_trials = 1
 
     # RETRIEVAL
     # retrieve data for just the outlet
     # nwis
     sites = [outlet_id]
-    nwis_one_site = time_function(st.get_streamflow_data, n_trials, sites,
-                                  start_date, end_date, 'iv', '15T')
+    nwis_one_site = time_function(retrieve_from_nwis, n_trials, sites,
+                                   start_date, end_date)
     print('nwis one site time:', nwis_one_site)
     # Zarr
     zarr_one_site = time_function(get_zarr_data, n_trials, sites, start_date,
@@ -114,8 +131,8 @@ if __name__ == "__main__":
     # retrieve data for all stations
     # nwis
     sites = subset_stations
-    nwis_all_sites = time_function(st.get_streamflow_data, 10, sites, start_date,
-                                   end_date, 'iv', '15T')
+    nwis_all_sites = time_function(retrieve_from_nwis, n_trials, sites,
+                                   start_date, end_date)
     print('nwis all sites time:', nwis_all_sites)
     # Zarr
     zarr_all_sites = time_function(get_zarr_data, n_trials, sites, start_date,
