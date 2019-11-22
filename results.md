@@ -37,8 +37,8 @@ pull characteristics
 | | Zarr | NWIS|
 |---|---|---|
 |one station (sec)| 10.5 | 29.8 | 
-|all sub-basin (sec)| 886 | 23 |  
-|all sub-basin retrieve (sec)| 401 | |  
+|all sub-basin (sec)| 23 | 886 |  
+|all sub-basin retrieve (sec)| | 401 |  
 
 ### read/write/storage
 | | Zarr | Parquet| CSV|
