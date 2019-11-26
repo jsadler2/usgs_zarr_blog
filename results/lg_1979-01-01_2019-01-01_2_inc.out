@@ -1,0 +1,314 @@
+starting request for sites ['01474500'] at 2019-11-26 15:39:36.768830, for period 1979-01-01 to 2019-01-01
+took 0:00:17.390799 to get data for huc ['01474500']
+processing the data for site  01474500
+nwis one site time: 31.064584
+zarr one site time: 14.833665
+starting request for sites ['01445000', '01464720'] at 2019-11-26 15:40:22.667139, for period 1979-01-01 to 2019-01-01
+took 0:00:28.626735 to get data for huc ['01445000', '01464720']
+processing the data for site  01445000
+processing the data for site  01464720
+starting request for sites ['01465850', '01481500'] at 2019-11-26 15:41:24.958000, for period 1979-01-01 to 2019-01-01
+took 0:00:47.472736 to get data for huc ['01465850', '01481500']
+processing the data for site  01465850
+processing the data for site  01481500
+starting request for sites ['01467042', '01429500'] at 2019-11-26 15:43:11.492084, for period 1979-01-01 to 2019-01-01
+took 0:00:36.987617 to get data for huc ['01467042', '01429500']
+processing the data for site  01429500
+processing the data for site  01467042
+starting request for sites ['01451800', '01430000'] at 2019-11-26 15:44:29.381861, for period 1979-01-01 to 2019-01-01
+took 0:00:39.155416 to get data for huc ['01451800', '01430000']
+processing the data for site  01430000
+processing the data for site  01451800
+starting request for sites ['01465880', '01428500'] at 2019-11-26 15:45:52.464260, for period 1979-01-01 to 2019-01-01
+took 0:00:30.375251 to get data for huc ['01465880', '01428500']
+processing the data for site  01428500
+processing the data for site  01465880
+starting request for sites ['01480638', '01436690'] at 2019-11-26 15:46:59.178837, for period 1979-01-01 to 2019-01-01
+took 0:00:35.038311 to get data for huc ['01480638', '01436690']
+processing the data for site  01436690
+processing the data for site  01480638
+starting request for sites ['01480700', '01464645'] at 2019-11-26 15:48:15.628719, for period 1979-01-01 to 2019-01-01
+took 0:00:57.584769 to get data for huc ['01480700', '01464645']
+processing the data for site  01464645
+processing the data for site  01480700
+starting request for sites ['01417000', '01480300'] at 2019-11-26 15:50:16.993644, for period 1979-01-01 to 2019-01-01
+took 0:00:41.355473 to get data for huc ['01417000', '01480300']
+processing the data for site  01417000
+processing the data for site  01480300
+starting request for sites ['01449800', '01482500'] at 2019-11-26 15:51:47.173005, for period 1979-01-01 to 2019-01-01
+took 0:00:42.031654 to get data for huc ['01449800', '01482500']
+processing the data for site  01449800
+processing the data for site  01482500
+starting request for sites ['01434000', '01470779'] at 2019-11-26 15:53:16.532184, for period 1979-01-01 to 2019-01-01
+took 0:00:39.142626 to get data for huc ['01434000', '01470779']
+processing the data for site  01434000
+processing the data for site  01470779
+starting request for sites ['01474500', '01470755'] at 2019-11-26 15:54:43.804929, for period 1979-01-01 to 2019-01-01
+took 0:00:23.859271 to get data for huc ['01474500', '01470755']
+processing the data for site  01470755
+processing the data for site  01474500
+starting request for sites ['01415000', '01479820'] at 2019-11-26 15:55:33.816952, for period 1979-01-01 to 2019-01-01
+took 0:00:45.063143 to get data for huc ['01415000', '01479820']
+processing the data for site  01415000
+processing the data for site  01479820
+starting request for sites ['01475530', '01467087'] at 2019-11-26 15:57:13.259335, for period 1979-01-01 to 2019-01-01
+took 0:00:54.413829 to get data for huc ['01475530', '01467087']
+processing the data for site  01467087
+processing the data for site  01475530
+starting request for sites ['01473000', '01454700'] at 2019-11-26 15:59:03.574258, for period 1979-01-01 to 2019-01-01
+took 0:00:51.033470 to get data for huc ['01473000', '01454700']
+processing the data for site  01454700
+processing the data for site  01473000
+starting request for sites ['01464907', '01465798'] at 2019-11-26 16:00:53.484858, for period 1979-01-01 to 2019-01-01
+took 0:00:44.839831 to get data for huc ['01464907', '01465798']
+processing the data for site  01464907
+processing the data for site  01465798
+starting request for sites ['01481000', '01423000'] at 2019-11-26 16:02:24.890556, for period 1979-01-01 to 2019-01-01
+took 0:00:41.462730 to get data for huc ['01481000', '01423000']
+processing the data for site  01423000
+processing the data for site  01481000
+starting request for sites ['01432900', '01455500'] at 2019-11-26 16:03:50.484692, for period 1979-01-01 to 2019-01-01
+took 0:00:37.849594 to get data for huc ['01432900', '01455500']
+processing the data for site  01432900
+processing the data for site  01455500
+starting request for sites ['01428000', '01413398'] at 2019-11-26 16:05:04.377212, for period 1979-01-01 to 2019-01-01
+took 0:00:24.146846 to get data for huc ['01428000', '01413398']
+processing the data for site  01413398
+processing the data for site  01428000
+starting request for sites ['01421618', '01479000'] at 2019-11-26 16:05:53.120606, for period 1979-01-01 to 2019-01-01
+took 0:00:52.981145 to get data for huc ['01421618', '01479000']
+processing the data for site  01421618
+processing the data for site  01479000
+starting request for sites ['01463740', '01457000'] at 2019-11-26 16:07:43.491122, for period 1979-01-01 to 2019-01-01
+took 0:00:47.561641 to get data for huc ['01463740', '01457000']
+processing the data for site  01457000
+processing the data for site  01463740
+starting request for sites ['01469500', '01472198'] at 2019-11-26 16:09:27.149045, for period 1979-01-01 to 2019-01-01
+took 0:00:37.763871 to get data for huc ['01469500', '01472198']
+processing the data for site  01469500
+processing the data for site  01472198
+starting request for sites ['01452000', '01447680'] at 2019-11-26 16:10:46.967014, for period 1979-01-01 to 2019-01-01
+took 0:00:57.769387 to get data for huc ['01452000', '01447680']
+processing the data for site  01447680
+processing the data for site  01452000
+starting request for sites ['01477120', '01470500'] at 2019-11-26 16:12:47.457702, for period 1979-01-01 to 2019-01-01
+took 0:00:52.957817 to get data for huc ['01477120', '01470500']
+processing the data for site  01470500
+processing the data for site  01477120
+starting request for sites ['01446500', '01413408'] at 2019-11-26 16:14:43.630232, for period 1979-01-01 to 2019-01-01
+took 0:00:58.941630 to get data for huc ['01446500', '01413408']
+processing the data for site  01413408
+processing the data for site  01446500
+starting request for sites ['01468500', '01422747'] at 2019-11-26 16:16:52.410452, for period 1979-01-01 to 2019-01-01
+took 0:00:26.026811 to get data for huc ['01468500', '01422747']
+processing the data for site  01422747
+processing the data for site  01468500
+starting request for sites ['01450500', '01452500'] at 2019-11-26 16:17:46.081301, for period 1979-01-01 to 2019-01-01
+took 0:00:58.045584 to get data for huc ['01450500', '01452500']
+processing the data for site  01450500
+processing the data for site  01452500
+starting request for sites ['01475510', '01474000'] at 2019-11-26 16:19:49.155075, for period 1979-01-01 to 2019-01-01
+took 0:00:28.787207 to get data for huc ['01475510', '01474000']
+processing the data for site  01474000
+processing the data for site  01475510
+starting request for sites ['01413500', '01439500'] at 2019-11-26 16:20:49.669155, for period 1979-01-01 to 2019-01-01
+took 0:00:50.989722 to get data for huc ['01413500', '01439500']
+processing the data for site  01413500
+processing the data for site  01439500
+starting request for sites ['01472810', '01465200'] at 2019-11-26 16:22:41.389940, for period 1979-01-01 to 2019-01-01
+took 0:00:12.219695 to get data for huc ['01472810', '01465200']
+processing the data for site  01465200
+processing the data for site  01472810
+starting request for sites ['01429301', '01480400'] at 2019-11-26 16:23:05.104790, for period 1979-01-01 to 2019-01-01
+took 0:00:11.561535 to get data for huc ['01429301', '01480400']
+processing the data for site  01429301
+processing the data for site  01480400
+starting request for sites ['0142400103', '01480870'] at 2019-11-26 16:23:29.721469, for period 1979-01-01 to 2019-01-01
+took 0:00:43.751819 to get data for huc ['0142400103', '01480870']
+processing the data for site  0142400103
+processing the data for site  01480870
+starting request for sites ['01427510', '01451500'] at 2019-11-26 16:25:05.006228, for period 1979-01-01 to 2019-01-01
+took 0:00:54.470429 to get data for huc ['01427510', '01451500']
+processing the data for site  01427510
+processing the data for site  01451500
+starting request for sites ['01449000', '01443280'] at 2019-11-26 16:26:59.386598, for period 1979-01-01 to 2019-01-01
+took 0:00:46.385087 to get data for huc ['01449000', '01443280']
+processing the data for site  01443280
+processing the data for site  01449000
+starting request for sites ['01446000', '01467000'] at 2019-11-26 16:28:41.579365, for period 1979-01-01 to 2019-01-01
+took 0:00:56.199541 to get data for huc ['01446000', '01467000']
+processing the data for site  01446000
+processing the data for site  01467000
+starting request for sites ['01436000', '01414000'] at 2019-11-26 16:30:38.638265, for period 1979-01-01 to 2019-01-01
+took 0:01:02.550420 to get data for huc ['01436000', '01414000']
+processing the data for site  01414000
+processing the data for site  01436000
+starting request for sites ['01443500', '01464750'] at 2019-11-26 16:32:40.493083, for period 1979-01-01 to 2019-01-01
+took 0:00:58.187421 to get data for huc ['01443500', '01464750']
+processing the data for site  01443500
+processing the data for site  01464750
+starting request for sites ['01432110', '01477800'] at 2019-11-26 16:34:36.298126, for period 1979-01-01 to 2019-01-01
+took 0:01:39.205588 to get data for huc ['01432110', '01477800']
+processing the data for site  01432110
+processing the data for site  01477800
+starting request for sites ['01460378', '01473900'] at 2019-11-26 16:38:05.346905, for period 1979-01-01 to 2019-01-01
+took 0:00:24.779791 to get data for huc ['01460378', '01473900']
+processing the data for site  01460378
+processing the data for site  01473900
+starting request for sites ['01465500', '01472199'] at 2019-11-26 16:38:56.005898, for period 1979-01-01 to 2019-01-01
+took 0:00:24.999536 to get data for huc ['01465500', '01472199']
+processing the data for site  01465500
+processing the data for site  01472199
+starting request for sites ['01466500', '01459500'] at 2019-11-26 16:39:45.702983, for period 1979-01-01 to 2019-01-01
+took 0:01:04.234896 to get data for huc ['01466500', '01459500']
+processing the data for site  01459500
+processing the data for site  01466500
+starting request for sites ['01431500', '01478245'] at 2019-11-26 16:42:07.927120, for period 1979-01-01 to 2019-01-01
+took 0:00:41.929512 to get data for huc ['01431500', '01478245']
+processing the data for site  01431500
+processing the data for site  01478245
+starting request for sites ['01440485', '01464000'] at 2019-11-26 16:43:38.614124, for period 1979-01-01 to 2019-01-01
+took 0:00:57.786732 to get data for huc ['01440485', '01464000']
+processing the data for site  01440485
+processing the data for site  01464000
+starting request for sites ['01446776', '01446775'] at 2019-11-26 16:45:45.825286, for period 1979-01-01 to 2019-01-01
+took 0:00:28.979433 to get data for huc ['01446776', '01446775']
+processing the data for site  01446775
+processing the data for site  01446776
+starting request for sites ['01480685', '01470960'] at 2019-11-26 16:46:48.669575, for period 1979-01-01 to 2019-01-01
+took 0:00:47.125687 to get data for huc ['01480685', '01470960']
+processing the data for site  01470960
+processing the data for site  01480685
+starting request for sites ['01467150', '01473169'] at 2019-11-26 16:48:32.646554, for period 1979-01-01 to 2019-01-01
+took 0:01:09.314820 to get data for huc ['01467150', '01473169']
+processing the data for site  01467150
+processing the data for site  01473169
+starting request for sites ['01427207', '01440400'] at 2019-11-26 16:51:00.118754, for period 1979-01-01 to 2019-01-01
+took 0:00:39.360693 to get data for huc ['01427207', '01440400']
+processing the data for site  01427207
+processing the data for site  01440400
+starting request for sites ['01472157', '01441495'] at 2019-11-26 16:52:21.014401, for period 1979-01-01 to 2019-01-01
+took 0:00:47.217736 to get data for huc ['01472157', '01441495']
+processing the data for site  01441495
+processing the data for site  01472157
+starting request for sites ['01422500', '01432160'] at 2019-11-26 16:54:00.072938, for period 1979-01-01 to 2019-01-01
+took 0:00:23.891127 to get data for huc ['01422500', '01432160']
+processing the data for site  01422500
+processing the data for site  01432160
+starting request for sites ['01478000', '01467081'] at 2019-11-26 16:54:51.023612, for period 1979-01-01 to 2019-01-01
+took 0:01:04.355696 to get data for huc ['01478000', '01467081']
+processing the data for site  01467081
+processing the data for site  01478000
+starting request for sites ['01472620', '01471000'] at 2019-11-26 16:57:12.419962, for period 1979-01-01 to 2019-01-01
+took 0:00:34.980764 to get data for huc ['01472620', '01471000']
+processing the data for site  01471000
+processing the data for site  01472620
+starting request for sites ['01434025', '01480617'] at 2019-11-26 16:58:26.984610, for period 1979-01-01 to 2019-01-01
+took 0:01:10.781698 to get data for huc ['01434025', '01480617']
+processing the data for site  01434025
+processing the data for site  01480617
+starting request for sites ['01475548', '01467492'] at 2019-11-26 17:01:03.362520, for period 1979-01-01 to 2019-01-01
+took 0:00:25.110916 to get data for huc ['01475548', '01467492']
+processing the data for site  01467492
+processing the data for site  01475548
+starting request for sites ['01467471', '01447720'] at 2019-11-26 17:01:53.493116, for period 1979-01-01 to 2019-01-01
+took 0:00:27.728358 to get data for huc ['01467471', '01447720']
+processing the data for site  01447720
+processing the data for site  01467471
+starting request for sites ['01417500', '01421610'] at 2019-11-26 17:02:52.123158, for period 1979-01-01 to 2019-01-01
+took 0:00:44.789786 to get data for huc ['01417500', '01421610']
+processing the data for site  01417500
+processing the data for site  01421610
+starting request for sites ['01425000', '01467048'] at 2019-11-26 17:04:29.143614, for period 1979-01-01 to 2019-01-01
+took 0:01:04.125032 to get data for huc ['01425000', '01467048']
+processing the data for site  01425000
+processing the data for site  01467048
+starting request for sites ['01434498', '01475001'] at 2019-11-26 17:06:46.784506, for period 1979-01-01 to 2019-01-01
+took 0:00:35.779258 to get data for huc ['01434498', '01475001']
+processing the data for site  01434498
+processing the data for site  01475001
+starting request for sites ['01451650', '01437500'] at 2019-11-26 17:08:04.943249, for period 1979-01-01 to 2019-01-01
+took 0:00:42.510091 to get data for huc ['01451650', '01437500']
+processing the data for site  01437500
+processing the data for site  01451650
+starting request for sites ['01427195', '01463620'] at 2019-11-26 17:09:32.797834, for period 1979-01-01 to 2019-01-01
+took 0:00:27.174314 to get data for huc ['01427195', '01463620']
+processing the data for site  01427195
+processing the data for site  01463620
+starting request for sites ['01426500', '01439590'] at 2019-11-26 17:10:29.668429, for period 1979-01-01 to 2019-01-01
+took 0:00:39.448128 to get data for huc ['01426500', '01439590']
+processing the data for site  01426500
+processing the data for site  01439590
+starting request for sites ['01467086', '01440000'] at 2019-11-26 17:11:55.024916, for period 1979-01-01 to 2019-01-01
+took 0:00:54.369925 to get data for huc ['01467086', '01440000']
+processing the data for site  01440000
+processing the data for site  01467086
+starting request for sites ['01421900', '01478120'] at 2019-11-26 17:13:51.238963, for period 1979-01-01 to 2019-01-01
+took 0:00:40.761334 to get data for huc ['01421900', '01478120']
+processing the data for site  01421900
+processing the data for site  01478120
+starting request for sites ['01442500', '01428750'] at 2019-11-26 17:15:10.299024, for period 1979-01-01 to 2019-01-01
+took 0:00:56.119136 to get data for huc ['01442500', '01428750']
+processing the data for site  01428750
+processing the data for site  01442500
+starting request for sites ['01413088', '01427500'] at 2019-11-26 17:17:09.479009, for period 1979-01-01 to 2019-01-01
+took 0:00:23.374004 to get data for huc ['01413088', '01427500']
+processing the data for site  01413088
+processing the data for site  01427500
+starting request for sites ['01434017', '01433500'] at 2019-11-26 17:17:58.836453, for period 1979-01-01 to 2019-01-01
+took 0:00:41.354882 to get data for huc ['01434017', '01433500']
+processing the data for site  01433500
+processing the data for site  01434017
+starting request for sites ['01421000', '01457500'] at 2019-11-26 17:19:24.107090, for period 1979-01-01 to 2019-01-01
+took 0:00:23.793413 to get data for huc ['01421000', '01457500']
+processing the data for site  01421000
+processing the data for site  01457500
+starting request for sites ['01429000', '01451000'] at 2019-11-26 17:20:13.049062, for period 1979-01-01 to 2019-01-01
+took 0:00:51.425078 to get data for huc ['01429000', '01451000']
+processing the data for site  01429000
+processing the data for site  01451000
+starting request for sites ['01443900', '01420500'] at 2019-11-26 17:22:03.892182, for period 1979-01-01 to 2019-01-01
+took 0:01:12.010324 to get data for huc ['01443900', '01420500']
+processing the data for site  01420500
+processing the data for site  01443900
+starting request for sites ['01432495', '01464500'] at 2019-11-26 17:24:32.323416, for period 1979-01-01 to 2019-01-01
+took 0:00:29.795783 to get data for huc ['01432495', '01464500']
+processing the data for site  01432495
+processing the data for site  01464500
+starting request for sites ['01422779', '01480015'] at 2019-11-26 17:25:38.939323, for period 1979-01-01 to 2019-01-01
+took 0:00:31.037223 to get data for huc ['01422779', '01480015']
+processing the data for site  01422779
+processing the data for site  01480015
+starting request for sites ['01471875', '01480000'] at 2019-11-26 17:26:44.912450, for period 1979-01-01 to 2019-01-01
+took 0:00:53.157020 to get data for huc ['01471875', '01480000']
+processing the data for site  01471875
+processing the data for site  01480000
+starting request for sites ['01447500', '01473500'] at 2019-11-26 17:28:42.715933, for period 1979-01-01 to 2019-01-01
+took 0:00:36.018214 to get data for huc ['01447500', '01473500']
+processing the data for site  01447500
+processing the data for site  01473500
+starting request for sites ['01453000', '01471510'] at 2019-11-26 17:30:05.944113, for period 1979-01-01 to 2019-01-01
+took 0:00:37.861335 to get data for huc ['01453000', '01471510']
+processing the data for site  01453000
+processing the data for site  01471510
+starting request for sites ['01460440', '01480675'] at 2019-11-26 17:31:28.080418, for period 1979-01-01 to 2019-01-01
+took 0:00:54.441432 to get data for huc ['01460440', '01480675']
+processing the data for site  01460440
+processing the data for site  01480675
+starting request for sites ['01480500', '01466900'] at 2019-11-26 17:33:30.969881, for period 1979-01-01 to 2019-01-01
+took 0:00:44.332588 to get data for huc ['01480500', '01466900']
+processing the data for site  01466900
+processing the data for site  01480500
+starting request for sites ['01449360', '01463500'] at 2019-11-26 17:35:04.061548, for period 1979-01-01 to 2019-01-01
+took 0:01:11.909169 to get data for huc ['01449360', '01463500']
+processing the data for site  01449360
+processing the data for site  01463500
+starting request for sites ['01438500', '01472000'] at 2019-11-26 17:37:33.638756, for period 1979-01-01 to 2019-01-01
+took 0:00:59.588947 to get data for huc ['01438500', '01472000']
+processing the data for site  01438500
+processing the data for site  01472000
+starting request for sites ['01455290', '01478650'] at 2019-11-26 17:39:40.238508, for period 1979-01-01 to 2019-01-01
+took 0:00:27.617507 to get data for huc ['01455290', '01478650']
+processing the data for site  01455290
+processing the data for site  01478650
+
