@@ -1,7 +1,9 @@
 ## Results for small pull
 pull characteristics
 
-|time (days) | 10|
+|thing|number|
+|---|---|
+|time period requested (days) | 10|
 |sites in all sub-basin | 23|
 |time scale (mins) | 15|
 |num possible data points | 22,080|
@@ -19,5 +21,30 @@ pull characteristics
 |write (sec)| 1.23 | 0.15 | 0.15 | 
 |read (sec)| 0.64 | 0.16 | 0.17 | 
 |storage (kB)| 51.3 | 40.8 | 124.1 | 
+
+## Results for big pull
+pull characteristics
+
+|thing|number|
+|---|---|
+|time period requested (days) | 14600|
+|sites in all sub-basin | 23|
+|time scale (mins) | 15|
+|num possible data points | 335,800 |
+|num data points (removing nan) | 16,905|
+
+### retrieve/format
+| | Zarr | NWIS|
+|---|---|---|
+|one station (sec)| 10.5 | 29.8 | 
+|all sub-basin (sec)| 23 | 886 |  
+|all sub-basin retrieve (sec)| | 401 |  
+
+### read/write/storage
+| | Zarr | Parquet| CSV|
+|---|---|---| ---|
+|write (sec)| 3.6 | 1.7 | 32.5 | 
+|read (sec)| 12.1 | 1.1 | 5.8 | 
+|storage (MB)| 33.5 | 15.4 | 110 | 
 
 
