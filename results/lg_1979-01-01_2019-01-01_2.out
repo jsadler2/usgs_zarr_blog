@@ -1,0 +1,6 @@
+starting request for sites ['01474500'] at 2019-11-26 15:39:36.768830, for period 1979-01-01 to 2019-01-01
+took 0:00:17.390799 to get data for huc ['01474500']
+processing the data for site  01474500
+nwis one site time: 31.064584
+zarr one site time: 14.833665
+starting request for sites ['01445000', '01464720'] at 2019-11-26 15:40:22.667139, for period 1979-01-01 to 2019-01-01

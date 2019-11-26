@@ -1,0 +1,45 @@
+starting request for sites ['01474500'] at 2019-11-25 20:52:50.027153, for period 2018-12-20 to 2019-01-01
+took 0:00:01.102413 to get data for huc ['01474500']
+processing the data for site  01474500
+nwis one site time: 1.136778
+zarr one site time: 8.370754
+starting request for sites ['01467471', '01467492', '01468500', '01469500'] at 2019-11-25 20:52:59.534734, for period 2018-12-20 to 2019-01-01
+took 0:00:00.901729 to get data for huc ['01467471', '01467492', '01468500', '01469500']
+processing the data for site  01468500
+processing the data for site  01469500
+starting request for sites ['01469700', '01470500', '01470779', '01470960'] at 2019-11-25 20:53:00.530010, for period 2018-12-20 to 2019-01-01
+took 0:00:01.042494 to get data for huc ['01469700', '01470500', '01470779', '01470960']
+processing the data for site  01470500
+processing the data for site  01470779
+processing the data for site  01470960
+starting request for sites ['01471000', '01471510', '01471875', '01472000'] at 2019-11-25 20:53:01.699965, for period 2018-12-20 to 2019-01-01
+took 0:00:00.996223 to get data for huc ['01471000', '01471510', '01471875', '01472000']
+processing the data for site  01471000
+processing the data for site  01471510
+processing the data for site  01471875
+processing the data for site  01472000
+starting request for sites ['01472157', '01472198', '01472199', '01472620'] at 2019-11-25 20:53:02.906977, for period 2018-12-20 to 2019-01-01
+took 0:00:00.886368 to get data for huc ['01472157', '01472198', '01472199', '01472620']
+processing the data for site  01472157
+processing the data for site  01472198
+processing the data for site  01472199
+processing the data for site  01472620
+starting request for sites ['01472810', '01473000', '01473169', '01473500'] at 2019-11-25 20:53:03.990406, for period 2018-12-20 to 2019-01-01
+took 0:00:01.434707 to get data for huc ['01472810', '01473000', '01473169', '01473500']
+processing the data for site  01472810
+processing the data for site  01473000
+processing the data for site  01473169
+processing the data for site  01473500
+starting request for sites ['01473900', '01474000', '01474500'] at 2019-11-25 20:53:05.609143, for period 2018-12-20 to 2019-01-01
+took 0:00:01.095992 to get data for huc ['01473900', '01474000', '01474500']
+processing the data for site  01473900
+processing the data for site  01474000
+processing the data for site  01474500
+nwis all sites time: 7.328466
+zarr all sites time: 6.584107
+write zarr: 2.632931
+write parquet: 0.451442
+write csv: 0.321442
+read zarr: 0.445085
+read parquet: 0.048896
+read csv: 0.027535
