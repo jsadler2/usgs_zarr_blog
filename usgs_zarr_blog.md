@@ -30,13 +30,13 @@ Once I retrieved the data subset, I wrote this subset to a new Zarr store, a Par
 
 ### Comparison 1: Data retrieval and formatting
 
-#### 10 days of data
+#### Table 1. Time in seconds to retrieve and format 10 days of data
 | | Zarr | NWIS|
 |---|---|---|
 |Schuylkill outlet (sec)| 6.2 | 1.04| 
 |all stations in Schuylkill basin (sec)| 7.2 | 19.7|  
 
-#### 40 years of data 
+#### Table 2. Time in seconds to retrieve and format 40 years of data 
 | | Zarr | NWIS|
 |---|---|---|
 |Schuylkill outlet (sec)| 10.5 | 29.8 | 
@@ -49,24 +49,25 @@ The 830 seconds it took to retrieve and format the 40 years of data from the 23 
 
 ### Comparison 2: Data write, read, and storage
 
-#### 10 days of data
+#### Table 3. Read, write, and storage for 10 days of data
 | | Zarr | Parquet| CSV|
 |---|---|---| ---|
+|read (sec)| 0.3 | 0.16 | 0.02 | 
 |write (sec)| 1.23 | 0.15 | 0.15 | 
-|read (sec)| 0.64 | 0.16 | 0.17 | 
 |storage (kB)| 51.3 | 40.8 | 124.1 | 
 
-#### 40 years of data 
+#### Table 4. Read, write, and storage for 40 years of data 
 | | Zarr | Parquet| CSV|
 |---|---|---| ---|
+|read (sec)| 1.3 | 0.7 | 3.4 | 
 |write (sec)| 5.5 | 1.7 | 28.4 | 
-|read (sec)| 11.2 | 0.7 | 3.4 | 
 |storage (MB)| 33.5 | 15.4 | 110 | 
 
-For both the 10-day and 40-year dataset, the Parquet format was  
+Except for reading the 10-day data, Parquet was the best performing for read and write times and storage size for both the 10-day and 40-year datasets. Zarr was the slowest format for read/write for the 10-day dataset with write speeds an order of magnitude slower than Parquet and CSV, though still under a second and a half. The performance of the CSV format was comparable to Parquet with the 10-day dataset and even faster reading. However, CSV scaled very poorly with the 40-year dataset. This was especially true of the the read and write times which increased over 170x for CSV. In contrast, the maximum increase for either Zarr or Parquet between the 10-day and 40-year dataset was an 11x increase in the Parquet write time. CSV also required a considerably larger storage size (3x compared to Zarr for the 40-year dataset).
 
 ## Discussion and Conclusion
+Since Parquet performed the best in nearly all of the categories of Comparison 2, you may be wondering, "why didn't you use Parquet to store all of the discharge data instead of Zarr?" The answer to that is flexibility. Zarr is a more flexible format than Parquet. Zarr allows for chunking along any dimension. Parquet is a columnar data format and allows for chunking only along one dimension. Additionally, Xarray's interface to Zarr makes it very easy to append to a Zarr store. This was very handy when I was making all of the NWIS web service calls. Even though the connection was very reliable because it was on a cloud machine, there times where the connection was dropped whether it was on EC2 side or the NWIS side. Because I could append to Zarr, when the connection dropped I could just pick up from the last chunk of data I had written and keep going.
 
-This example shows great promise in making large-scale USGS data more easily accessible through cloud-friendly formats on cloud storage. My speculation is that cloud-accessible data one day may serve as a complement to or a complete replacement of traditional web services. Because the S3 bucket is in the CHS cloud, any USGS researcher that has CHS access will have access to the same dataset that I did the tests on. Although I did the analysis on stations in the Schuylkill River Basin, similar results should be able to be produced with any arbitrary subset of NWIS stations. This retrieval is possible without any type of web-service for subsetting the data. Since Zarr is chunked, object storage it is easily and efficiently subsettable with functionality built into the interfacing software package (i.e., Xarray in Python). Additionally, the data is read directly into a computation friendly in-memory format (i.e., an Xarray dataset) instead of plain text in an HTML response as is delivered by a web service.
+The results of Comparison 1 show great promise in making large-scale USGS data more readily accessible through cloud-friendly formats on cloud storage. My speculation is that cloud-accessible data one day may serve as a complement to or a complete replacement of traditional web services. Because the S3 bucket is in the CHS cloud, any USGS researcher that has CHS access will have access to the same dataset that I did the tests on. Although I did the analysis on stations in the Schuylkill River Basin, similar results should be able to be produced with any arbitrary subset of NWIS stations. This retrieval is possible without any type of web-service for subsetting the data. Since Zarr is chunked, object storage it is easily and efficiently subsettable with functionality built into the interfacing software package (i.e., Xarray in Python). Additionally, the data is read directly into a computation friendly in-memory format (i.e., an Xarray dataset) instead of plain text in an HTML response as is delivered by a web service.
 
 Beside efficient access, a major benefit of storing the data in the CHS S3 bucket in Zarr is the proximity to and propensity for scalable computing. Through the cloud, a computational cluster could be quickly scaled up to efficiently operate on the chunks of Zarr data. As USGS scientists become more accustomed to using cloud resources on CHS, having USGS data accessible in cloud-friendly formats will be a great benefit for large-scale research. The [Pangeo software stack](https://www.pangeo.io), which should be available through CHS soon, provides intuitive and approachable tools to help scientists perform cloud-based, scalable analyses on large cloud-friendly datasets.  
