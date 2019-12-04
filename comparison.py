@@ -43,7 +43,7 @@ def time_function(function, n_loop, *args):
         end_time = datetime.datetime.now()
         elapsed_time = end_time - start_time
         times.append(elapsed_time.total_seconds())
-    return min(times)
+    return times
 
 
 def ds_to_df(ds):
@@ -78,7 +78,17 @@ def get_zarr_data(sites, start_date, end_date):
     ds = load_zarr_discharge()
     q = ds['streamflow']
     s = q.loc[start_date:end_date, sites]
-    df = ds_to_df(s)
+    return df
+
+
+def load_zarr_da(sites, start_date, end_date):
+    sites_q = get_zarr_data(sites, start_date, end_date)
+    sites_q.load()
+
+
+def get_df_from_zarr(sites, start_date, end_date):
+    sites_q = get_zarr_data(sites, start_date, end_date)
+    df = ds_to_df(sites_q)
     return df
 
 
@@ -169,92 +179,80 @@ def get_subset_sites():
     return subset_stations
 
 
-def time_retrieval_one(n_trials, sites, start_date, end_date):
-    # retrieve data for just the outlet
-    # nwis
-    sites = [outlet_id]
-    nwis_one_site = time_function(retrieve_from_nwis, n_trials, sites,
-                                   start_date, end_date)
-    print('nwis one site time:', nwis_one_site)
-    # Zarr
-    zarr_one_site = time_function(get_zarr_data, n_trials, sites, start_date,
-                                  end_date)
-    print('zarr one site time:', zarr_one_site)
-
-
-def time_retrieval_all(n_trials, sites, start_date, end_date, n_per_chunk):
+def time_retrieve_nwis(n_trials, tag):
     # retrieve data for all stations
     # nwis
-    sites = site_codes
+    sites_tag, start_date, end_date, n_per_chunk = tag.split('_')
+    sites = get_sites_from_site_tag(sites_tag)
+    out_file = f"results/retrieve_nwis_{tag}.out"
+
+    nwis_one_site = time_function(retrieve_from_nwis, n_trials, ['01474500'],
+                                   start_date, end_date)
     nwis_all_sites = time_function(retrieve_from_nwis, n_trials, sites,
                                    start_date, end_date, n_per_chunk)
-    print('nwis all sites time:', nwis_all_sites)
-    # Zarr
-    zarr_all_sites = time_function(get_zarr_data, n_trials, sites, start_date,
+
+    with open(out_file, 'w') as f:
+        print('nwis all sites time:', nwis_all_sites, file=f)
+        print('nwis one site time:', nwis_one_site, file=f)
+
+
+def time_retrieve_zarr(n_trials, tag):
+    sites_tag, start_date, end_date = tag.split('_')
+    sites = get_sites_from_site_tag(sites_tag)
+    out_file = f"results/retrieve_zarr_{tag}.out"
+    zarr_all_sites = time_function(load_zarr_da, n_trials, sites, start_date,
                                    end_date)
-    print('zarr all sites time:', zarr_all_sites)
+
+    # Zarr
+    zarr_one_site = time_function(load_zarr_da, n_trials, ['01474500'],
+                                  start_date, end_date)
+    with open(out_file, 'w') as f:
+        print('zarr all sites time:', zarr_all_sites, file=f)
+        print('zarr one site time:', zarr_one_site, file=f)
 
 
-def time_write(n_trials, sites, start_date, end_date, tag):
+def time_write(n_trials, tag):
     # get subset from full zarr
-    df = get_zarr_data(sites, start_date, end_date)
+    print(tag)
+    sites_tag, start_date, end_date = tag.split('_')
+    out_file = f"results/write_{tag}.out"
+    sites = get_sites_from_site_tag(sites_tag)
+    df = get_df_from_zarr(sites, start_date, end_date)
 
     write_zarr_time = time_function(write_zarr, n_trials, df, tag)
-    print('write zarr:', write_zarr_time)
-
     write_parquet_time = time_function(write_parquet, n_trials, df, tag)
-    print('write parquet:', write_parquet_time)
-
     write_csv_time = time_function(write_csv, n_trials, df, tag)
-    print('write csv:', write_csv_time)
+
+    with open(out_file, 'w') as f:
+        print('write zarr:', write_zarr_time, file=f)
+        print('write parquet:', write_parquet_time, file=f)
+        print('write csv:', write_csv_time, file=f)
 
 
 def time_read(n_trials, tag):
+    out_file = f"results/read_{tag}.out"
     read_zarr_time = time_function(read_zarr, n_trials, tag)
-    print('read zarr:', read_zarr_time)
-
     read_parquet_time = time_function(read_parquet, n_trials, tag)
-    print('read parquet:', read_parquet_time)
-
     read_csv_time = time_function(read_csv, n_trials, tag)
-    print('read csv:', read_csv_time)
+
+    with open(out_file, 'w') as f:
+        print('read zarr:', read_zarr_time, file=f)
+        print('read parquet:', read_parquet_time, file=f)
+        print('read csv:', read_csv_time, file=f)
 
 
-def get_options(args=sys.argv[1:]):
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-b', '--begdate', help='begin date')
-    parser.add_argument('-e', '--enddate', help='end date')
-    parser.add_argument('-n', '--nperchunk', help='number of nwis sites to\
-                        pull at a time')
-    parser.add_argument('-s', '--sites', help='which number of sites',
-                        choices=['md', 'lg'])
-    return parser.parse_args(args)
-
-
-if __name__ == "__main__":
-    # SETUP
-    # get sites
-    options = get_options()
-    # read in all stations
-    if options.sites == 'md':
+def get_sites_from_site_tag(site_tag):
+    """
+    get the sites based on the site tag
+    :param site_tag:[str] 'md' or 'lg' for medium (Schuylkill) or large (DRB)
+    :return:[list] list of sites
+    """
+    if site_tag == 'md':
         site_codes = get_subset_in_zarr()
-    elif options.sites == 'lg':
+    elif site_tag == 'lg':
         site_codes = get_all_drb_in_zarr()
+    else:
+        raise ValueError('site_tag should be "md" or "lg" not {site_tag}')
+    return site_codes
 
-    outlet_id = '01474500'
-    start_date = options.begdate
-    end_date = options.enddate
-    n_nwis_per_chunk = int(options.nperchunk)
-    n_trials = 1
-    tag = f"{options.sites}_{start_date}_{end_date}_{n_nwis_per_chunk}"
 
-    # RETRIEVAL
-    time_retrieval_one(n_trials, [outlet_id], start_date, end_date)
-    time_retrieval_all(n_trials, site_codes, start_date, end_date,
-                       n_nwis_per_chunk)
-
-    # WRITE
-    time_write(n_trials, site_codes, start_date, end_date, tag)
-
-    # READ
-    time_read(n_trials, tag)
