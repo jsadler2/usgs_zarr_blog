@@ -1,4 +1,5 @@
 # Cloud-optimized USGS Time Series Data
+by Jeff Sadler
 
 ## Introduction
 The scalability, flexibility, and configurabilty of the commercial cloud provide new and exciting possibilities for many applications including earth science research. As with many organizations, the US Geological Survey (USGS) is exploring the use and advantages of the cloud for performing their science. The full benefit of the cloud, however, can only be realized if the data that will be used is in a cloud-friendly format.
