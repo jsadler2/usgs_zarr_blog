@@ -43,7 +43,7 @@ def time_function(function, n_loop, *args):
         end_time = datetime.datetime.now()
         elapsed_time = end_time - start_time
         times.append(elapsed_time.total_seconds())
-    return times
+    return min(times), times
 
 
 def ds_to_df(ds):
@@ -78,7 +78,7 @@ def get_zarr_data(sites, start_date, end_date):
     ds = load_zarr_discharge()
     q = ds['streamflow']
     s = q.loc[start_date:end_date, sites]
-    return df
+    return s
 
 
 def load_zarr_da(sites, start_date, end_date):
@@ -125,9 +125,8 @@ def write_parquet(df, tag):
 def read_zarr(tag):
     zarr_store = load_s3_zarr_store(get_file_name(tag, '')[0])
     ds = xr.open_zarr(zarr_store)
-    q = ds['streamflow']
-    df = ds_to_df(q)
-    return df
+    q = ds['streamflow'].load()
+    return q
 
 
 def read_csv(tag):
