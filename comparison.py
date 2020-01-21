@@ -6,10 +6,7 @@ import sys
 import os
 import xarray as xr
 import boto3
-
-scripts_path =  os.path.abspath("../preprocess_ml_usgs/scripts/")
-sys.path.insert(0, scripts_path)
-import streamflow_data_retrival as st
+from streamflow_data_retrieval import get_streamflow_data
 from utils import convert_df_to_dataset, load_s3_zarr_store, divide_chunks
 
 bucket_name = 'ds-drb-data'
@@ -57,7 +54,7 @@ def retrieve_from_nwis(site_codes, start_date, end_date, n_per_chunk=1):
     chunked_list = divide_chunks(site_codes, n_per_chunk)
     df_list = []
     for site_code_chunk in chunked_list:
-        d = st.get_streamflow_data(site_code_chunk, start_date, end_date, 'iv',
+        d = get_streamflow_data(site_code_chunk, start_date, end_date, 'iv',
                                    '15T')
         df_list.append(d)
     df_comb = pd.concat(df_list, 1)
